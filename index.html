@@ -1,27 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secure Password Generator</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Tomorrow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Password Generator</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>SECURE PASSWORD <BR>GENERATOR</h1>
-    <main>
-        <div class="generator">
-            <div class="output">
-                
+
+<div class="container">
+
+    <!-- LEFT -->
+    <div class="left">
+        <h1>PASSWORD<br>GENERATOR</h1>
+
+        <div class="password-box">
+            <span>1a4Txe3m*%Qm^vdXs!</span>
+            <div class="icons">
+                <div class="flag"></div>
+                <div class="refresh">⟳</div>
             </div>
         </div>
 
-        <div class="history">
+        <button class="copy-btn">
+            COPY PASSWORD
+            <span>→</span>
+        </button>
 
+        <div class="slider-section">
+            <input type="range" min="4" max="32" value="18">
+            <div class="length">18</div>
         </div>
-    </main>
-    <script src="script.js"></script>
+
+        <div class="options">
+            <label><input type="checkbox" checked> Uppercase letters</label>
+            <label><input type="checkbox" checked> Lowercase letters</label>
+            <label><input type="checkbox"> Numbers</label>
+            <label><input type="checkbox"> Symbols</label>
+        </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="right">
+        <h2>PASSWORD HISTORY</h2>
+
+        <ul class="history">
+            <li>^d3~9YDA8sjcWN9L_p^ <span>📋</span></li>
+            <li>O6IHuY1NZTMTY98#VT <span>📋</span></li>
+            <li>WEKPS8A00NY5NK4DBJ2N <span>📋</span></li>
+            <li>#G4TPBT08EN8VHMVYLG* <span>📋</span></li>
+            <li>WMZTY8ZJOSW1F2AFXJS <span>📋</span></li>
+        </ul>
+
+        <div class="clear">Clear history</div>
+    </div>
+
+</div>
+
+<footer>
+    <div class="audio">🔊 ENABLE AUDIO</div>
+    <div class="links">KEYBOARD SHORTCUTS &nbsp; SOURCE CODE &nbsp; AUTHOR</div>
+</footer>
+
 </body>
 </html>
