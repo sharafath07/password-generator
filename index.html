@@ -1,70 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Password Generator</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Password Generator</title>
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<!-- <link rel="stylesheet" href="responsive.css"> -->
-</head>
+    <!-- Google Fonts -->
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="responsive.css">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/3a44531c23.js" crossorigin="anonymous"></script>
+    
+    </head>
 
-<body>
+    <body>
+        <div id="note">Password copied to clipboard!</div>
+        <div class="container">
 
-<div class="container">
+            <!-- LEFT -->
+            <div class="left">
+                <h1>PASSWORD<br>GENERATOR</h1>
 
-    <!-- LEFT -->
-    <div class="left">
-        <h1>PASSWORD<br>GENERATOR</h1>
+                <div class="password-box">
+                    <span id="password-text">Password</span>
+                    <div class="icons">
+                        <div class="flag"></div>
+                        <div class="copy">
+                            <i class="fa-regular fa-copy"></i>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="password-box">
-            <span>1a4Txe3m*%Qm^vdXs!</span>
-            <div class="icons">
-                <div class="flag"></div>
-                <div class="refresh">⟳</div>
+                <button class="generate">
+                    GENERATE
+                    <span>→</span>
+                </button>
+
+                <div class="slider-section">
+                    <input type="range" min="4" max="32" value="18">
+                    <div class="length">18</div>
+                </div>
+
+                <div class="options">
+                    <label><input type="checkbox" checked> Uppercase letters</label>
+                    <label><input type="checkbox" checked> Lowercase letters</label>
+                    <label><input type="checkbox"> Numbers</label>
+                    <label><input type="checkbox"> Symbols</label>
+                </div>
             </div>
+
+            <!-- RIGHT -->
+            <div class="right">
+                <h2>PASSWORD HISTORY</h2>
+
+                <ul class="history"></ul>
+
+                <div class="clear">Clear history</div>
+            </div>
+
         </div>
 
-        <button class="copy-btn">
-            COPY PASSWORD
-            <span>→</span>
-        </button>
-
-        <div class="slider-section">
-            <input type="range" min="4" max="32" value="18">
-            <div class="length">18</div>
-        </div>
-
-        <div class="options">
-            <label><input type="checkbox" checked> Uppercase letters</label>
-            <label><input type="checkbox" checked> Lowercase letters</label>
-            <label><input type="checkbox"> Numbers</label>
-            <label><input type="checkbox"> Symbols</label>
-        </div>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="right">
-        <h2>PASSWORD HISTORY</h2>
-
-        <ul class="history">
-            <li>^d3~9YDA8sjcWN9L_p^ <span>📋</span></li>
-            <li>O6IHuY1NZTMTY98#VT <span>📋</span></li>
-            <li>WEKPS8A00NY5NK4DBJ2N <span>📋</span></li>
-            <li>#G4TPBT08EN8VHMVYLG* <span>📋</span></li>
-            <li>WMZTY8ZJOSW1F2AFXJS <span>📋</span></li>
-        </ul>
-
-        <div class="clear">Clear history</div>
-    </div>
-
-</div>
-
-<footer>
-    <div class="audio">🔊 ENABLE AUDIO</div>
-    <div class="links">KEYBOARD SHORTCUTS &nbsp; SOURCE CODE &nbsp; AUTHOR</div>
-</footer>
-<script src="script.js"></script>
-</body>
+        <footer>
+            <!-- <div class="audio">🔊 ENABLE AUDIO</div> -->
+            <div class="links"><p id="short">KEYBOARD SHORTCUTS</p>&nbsp;<a href="https://github.com/sharafath07/password-generator"> SOURCE CODE</a> &nbsp; <a href="https://github.com/sharafath07">AUTHOR</a></div>
+        </footer>
+        <script src="script.js"></script>
+    </body>
 </html>

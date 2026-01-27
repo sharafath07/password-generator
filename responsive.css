@@ -1,13 +1,32 @@
-/* =========================
-   MOBILE: PASSWORD HISTORY UNDER FORM
-   ========================= */
-@media (max-width: 500px) {
-
+@media screen and (max-width: 970px) {
     .container {
-        display:inline;
-        /* flex-direction: column;
-        justify-content: center; */
+        padding: 50px 60px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #note{
+        font-size: 18px;
+        padding: 15px 30px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    /* Stack layout vertically */
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: auto;
         padding: 40px 20px;
+        align-items: center;
+    }
+
+    #note{
+        padding: 10px 5px;
+        font-size: 15px;
+        text-align: center;
     }
 
     /* Left section first */
@@ -16,11 +35,32 @@
         order: 1;
     }
 
-    /* Password history moves BELOW left */
+    .left h1 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .password-box {
+        font-size: 16px;
+        padding: 12px;
+        margin-bottom: 20px;
+    }
+
+    .generate {
+        width: 100%;
+        padding: 15px 0;
+        font-size: 18px;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    /* Password history BELOW left */
     .right {
         width: 100%;
         order: 2;
-        margin-top: 50px;
+        margin-top: 40px;
     }
 
     /* Improve mobile spacing */
@@ -38,4 +78,24 @@
         text-align: center;
         margin-top: 25px;
     }
+
+    .options {
+        gap: 10px;
+    }
+
+    input[type="checkbox"]{
+        margin: 0;
+    }
 }
+
+@media screen and (max-width: 400px) {
+    .options{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #note{
+        font-size: 10px;
+        padding: 10px 10px;
+    }
+}
+

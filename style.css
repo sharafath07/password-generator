@@ -6,10 +6,32 @@
 
 body{
     background:#000;
-    /* position: absolute; */
+    position: absolute;
     color:#fff;
     width: 100%;
     font-family:'Share Tech Mono', monospace;
+}
+#note{
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    padding: 20px 40px;
+    font-size:20px;
+    font-weight: 900;
+    color:#666;
+    background-color: #111111;
+    border-radius: 10px;
+    border: #aaa solid 1px;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+#note .show{
+    opacity: 1;
+    visibility: visible;
 }
 
 /* MAIN LAYOUT */
@@ -17,6 +39,7 @@ body{
     display:flex;
     justify-content:space-between;
     padding:80px 100px;
+    margin: auto;
 }
 
 /* LEFT SECTION */
@@ -55,11 +78,15 @@ h1{
     background:linear-gradient(to bottom, red 33%, white 33% 66%, green 66%);
 }
 
-.refresh{
-    cursor:pointer;
+.copy {
+    cursor: pointer;
+    color: #00fff0;
+    align-items: center;
+    padding: 5px;
 }
 
-.copy-btn{
+
+.generate{
     background:#ffe600;
     color:#000;
     font-family:'Orbitron', sans-serif;
@@ -74,7 +101,7 @@ h1{
     margin-bottom:40px;
 }
 
-.copy-btn span{
+.generate span{
     font-size:20px;
 }
 
@@ -133,6 +160,10 @@ input[type="checkbox"]{
     color:#aaa;
 }
 
+.history li .copy-icon{
+    cursor:pointer;
+}
+
 .clear{
     margin-top:25px;
     color:#ffe600;
@@ -143,59 +174,16 @@ input[type="checkbox"]{
 footer{
     position:fixed;
     bottom:20px;
-    left:100px;
-    right:100px;
+    left:0px;
+    right:0px;
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     font-size:14px;
 }
 
-.audio{
-    color:#00fff0;
-}
-
-.links{
+a , .links , #short{
+    display: inline;
+    text-align: center;
+    text-decoration: none;
     color:#666;
-}
-
-/* =========================
-   MOBILE: PASSWORD HISTORY UNDER FORM
-   ========================= */
-@media screen and (max-width: 500px) {
-
-    .container {
-        display:inline;
-        /* flex-direction: column;
-        justify-content: center; */
-        padding: 40px 20px;
-    }
-
-    /* Left section first */
-    .left {
-        width: 100%;
-        order: 1;
-    }
-
-    /* Password history moves BELOW left */
-    .right {
-        width: 100%;
-        order: 2;
-        margin-top: 50px;
-    }
-
-    /* Improve mobile spacing */
-    .right h2 {
-        font-size: 18px;
-        margin-bottom: 20px;
-    }
-
-    .history li {
-        font-size: 14px;
-        padding: 10px 0;
-    }
-
-    .clear {
-        text-align: center;
-        margin-top: 25px;
-    }
 }
