@@ -7,7 +7,7 @@ const checkboxes = document.querySelectorAll('.options input[type="checkbox"]');
 const historyList = document.querySelector(".history");
 const clearBtn = document.querySelector(".clear");
 const generateBtn = document.querySelector(".generate");
-const note = document.getElementById("note");
+const note = document.querySelector(".note");
 
 // ====== CHARACTER SETS ======
 const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -53,11 +53,12 @@ copyBtn.addEventListener("click", () => {
     if (!password || password === "Select options") return;
 
     navigator.clipboard.writeText(password);
-    
-    note.classList.add("show");
+
+    note.style.display = 'inline';
+
     setTimeout(() => {
-        note.classList.remove("show");
-    }, 5000);
+        note.style.display = 'none';
+    }, 2000);
     
 });
 
@@ -65,7 +66,7 @@ generateBtn.addEventListener("click", () => {
     generatePassword();
 });
 
-// ====== LOCAL STORAGE ======
+// ====== SAVE TO LOCAL STORAGE ======
 function saveToHistory(password) {
     let history = JSON.parse(localStorage.getItem("passwordHistory")) || [];
     history.unshift(password);
@@ -86,11 +87,16 @@ function loadHistory() {
         const li = document.createElement("li");
         li.innerHTML = `
             ${item}
-            <span class="copy-icon">📋</span>
+            <span class="copy-icon fa-regular fa-copy"></span>
         `;
 
         li.querySelector(".copy-icon").addEventListener("click", () => {
             navigator.clipboard.writeText(item);
+            note.style.display = 'inline';
+
+            setTimeout(() => {
+                note.style.display = 'none';
+            }, 2000);
         });
 
         historyList.appendChild(li);
@@ -104,6 +110,44 @@ clearBtn.addEventListener("click", () => {
 });
 
 // ====== INITIAL LOAD ======
-// generatePassword();
 loadHistory();
 
+document.querySelector("body").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        generatePassword();
+    } else if ((e.key === "c" || e.key === "C")) {
+        const password = passwordText.textContent;
+        if (!password || password === "Select options") return;
+
+        navigator.clipboard.writeText(password);
+
+        note.style.display = 'inline';
+
+        setTimeout(() => {
+            note.style.display = 'none';
+        }, 2000);
+    } else if (e.key === "Escape") {
+        localStorage.removeItem("passwordHistory");
+        loadHistory();
+    } else if (e.key === "ArrowUp") {
+        let newValue = Math.min(parseInt(slider.value) + 1, slider.max);
+        slider.value = newValue;
+        lengthText.textContent = newValue;
+    } else if (e.key === "ArrowDown") {
+        let newValue = Math.max(parseInt(slider.value) - 1, slider.min);
+        slider.value = newValue;
+        lengthText.textContent = newValue;
+    } else if (e.key === "g" || e.key === "G") {
+        generatePassword();
+    } else if (e.key === "u" || e.key === "U") {
+        checkboxes[0].checked = !checkboxes[0].checked;
+    } else if (e.key === "l" || e.key === "L") {
+        checkboxes[1].checked = !checkboxes[1].checked;
+    } else if (e.key === "n" || e.key === "N") {
+        checkboxes[2].checked = !checkboxes[2].checked;
+    } else if (e.key === "s" || e.key === "S") {
+        checkboxes[3].checked = !checkboxes[3].checked;
+    } else if (e.key === "r" || e.key === "R") {
+        window.location.reload();
+    }
+});

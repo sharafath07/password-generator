@@ -9,10 +9,11 @@ body{
     position: absolute;
     color:#fff;
     width: 100%;
-    font-family:'Share Tech Mono', monospace;
+    font-family:'Tomorrow', monospace;
 }
-#note{
-    position:fixed;
+.note{
+    display: none;
+    position: fixed;
     top: 50%;
     left: 50%;
     text-align: center;
@@ -25,13 +26,6 @@ body{
     border-radius: 10px;
     border: #aaa solid 1px;
     z-index: 99;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s;
-}
-#note .show{
-    opacity: 1;
-    visibility: visible;
 }
 
 /* MAIN LAYOUT */
@@ -73,6 +67,7 @@ h1{
 }
 
 .flag{
+    display: none;
     width:18px;
     height:12px;
     background:linear-gradient(to bottom, red 33%, white 33% 66%, green 66%);
@@ -95,7 +90,7 @@ h1{
     padding:18px 30px;
     cursor:pointer;
     display:flex;
-    justify-content:space-between;
+    justify-content:space-around;
     align-items:center;
     width:280px;
     margin-bottom:40px;
@@ -184,6 +179,5 @@ footer{
 a , .links , #short{
     display: inline;
     text-align: center;
-    text-decoration: none;
     color:#666;
 }
