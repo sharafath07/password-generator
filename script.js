@@ -8,6 +8,9 @@ const historyList = document.querySelector(".history");
 const clearBtn = document.querySelector(".clear");
 const generateBtn = document.querySelector(".generate");
 const note = document.querySelector(".note");
+const shortcut = document.querySelector("#short");
+const shortcutList = document.querySelector(".shortbg");
+const closeShortcut = document.querySelector(".close");
 
 // ====== CHARACTER SETS ======
 const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -112,6 +115,15 @@ clearBtn.addEventListener("click", () => {
 // ====== INITIAL LOAD ======
 loadHistory();
 
+// ====== KEYBOARD SHORTCUTS ======
+shortcut.addEventListener("click", () => {
+    shortcutList.style.display = "block";
+})
+
+closeShortcut.addEventListener("click", () => {
+    shortcutList.style.display = "none";
+})
+
 document.querySelector("body").addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         generatePassword();
@@ -126,7 +138,7 @@ document.querySelector("body").addEventListener("keydown", (e) => {
         setTimeout(() => {
             note.style.display = 'none';
         }, 2000);
-    } else if (e.key === "Escape") {
+    } else if (e.key === "X" || e.key === "x") {
         localStorage.removeItem("passwordHistory");
         loadHistory();
     } else if (e.key === "ArrowUp") {

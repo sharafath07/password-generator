@@ -2,6 +2,9 @@
     .container {
         padding: 50px 60px;
     }
+    #short{
+        display: none;
+    }
 }
 
 @media screen and (max-width: 800px) {
