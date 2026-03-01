@@ -1,91 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Password Generator</title>
-        <meta name="description" content="A secure password generator web application to create strong and random passwords using uppercase, lowercase, numbers, and symbols.">
-        <meta name="author" content="Sharafath Ahammed V">
-        <meta name="keywords" content="password generator, strong password, random password, secure password, javascript password generator, css html project">
-        <meta property="og:title" content="Password Generator">
-        <meta property="og:description" content="Create strong and secure passwords instantly">
-        <meta property="og:image" content="https://sharafath07.github.io/password-generator/Preview.png">
-        <meta property="og:url" content="https://sharafath07.github.io/password-generator/">
-        <meta property="og:type" content="website">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="responsive.css">
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-        <script src="https://kit.fontawesome.com/3a44531c23.js" crossorigin="anonymous"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
 
-    <body>
-        <div class="note">Password copied to clipboard!</div>
-        <div class="shortbg">
-            <div class="short">
-                <div class="close">X</div>
-                <h2><u>KEYBOARD SHORTCUTS</u></h2>
-                <ul>
-                    <li><b>GENERATE PASSWORD :</b> <span>G</span></li>
-                    <li><b>COPY PASSWORD :</b> <span>C</span></li>
-                    <li><b>CLEAR PASSWORD HISTORY :</b> <span>X</span></li>
-                    <li><b>TOGGLE UPPERCASE :</b> <span>U</span></li>
-                    <li><b>TOGGLE LOWERCASE :</b> <span>L</span></li>
-                    <li><b>TOGGLE NUMBERS :</b> <span>N</span></li>
-                    <li><b>TOGGLE SYMBOLS :</b> <span>S</span></li>
-                    <li><b>INCREASE LENGTH :</b> <span>&uarr;</span></li>
-                    <li><b>DECREASE LENGTH :</b> <span>&darr;</span></li>
-                    <li><b>RELOAD PAGE:</b> <span>R</span></li>
-                </ul>
+    <meta name="description" content="Secure password generator with entropy calculator and passphrase mode.">
+    <meta name="author" content="Sharafath Ahammed V">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3a44531c23.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<div class="note">Password copied to clipboard!</div>
+
+<div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+
+        <h1>PASSWORD<br>GENERATOR</h1>
+
+        <div class="password-box">
+            <span id="password-text">Password</span>
+            <div class="icons">
+                <div class="copy">
+                    <i class="fa-regular fa-copy"></i>
+                </div>
             </div>
         </div>
-        <div class="container">
 
-            <!-- LEFT -->
-            <div class="left">
-                <h1>PASSWORD<br>GENERATOR</h1>
-
-                <div class="password-box">
-                    <span id="password-text">Password</span>
-                    <div class="icons">
-                        <div class="flag"></div>
-                        <div class="copy">
-                            <i class="fa-regular fa-copy"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="generate">
-                    GENERATE_
-                    <span>→</span>
-                </button>
-
-                <div class="slider-section">
-                    <input type="range" min="4" max="32" value="18">
-                    <div class="length">18</div>
-                </div>
-
-                <div class="options">
-                    <label><input type="checkbox" checked> Uppercase letters</label>
-                    <label><input type="checkbox" checked> Lowercase letters</label>
-                    <label><input type="checkbox"> Numbers</label>
-                    <label><input type="checkbox"> Symbols</label>
-                </div>
+        <!-- STRENGTH BOX -->
+        <div class="strength-box">
+            <div class="strength-bar">
+                <div class="strength-fill"></div>
             </div>
 
-            <!-- RIGHT -->
-            <div class="right">
-                <h2>PASSWORD HISTORY</h2>
-
-                <ul class="history"></ul>
-
-                <div class="clear">Clear history</div>
-            </div>
-
+            <p>Entropy: <span id="entropy">0</span> bits</p>
+            <p>Estimated Crack Time: <span id="crack-time">—</span></p>
+            <p>Security Level: <span id="security-level">—</span></p>
         </div>
 
-        <footer>
-            <div class="links"><p id="short"><u>KEYBOARD SHORTCUTS</u></p> &nbsp; <a href="https://github.com/sharafath07/password-generator" target="_blank">SOURCE CODE</a> &nbsp; <a href="https://github.com/sharafath07" target="_blank">AUTHOR</a></div>
-        </footer>
-        <script src="script.js"></script>
-    </body>
+        <button class="generate">
+            GENERATE_
+            <span>→</span>
+        </button>
+
+        <!-- MODE SWITCH -->
+        <div class="mode-section">
+            <label>
+                <input type="radio" name="mode" value="password" checked>
+                Character Mode
+            </label>
+
+            <label>
+                <input type="radio" name="mode" value="passphrase">
+                Passphrase Mode
+            </label>
+        </div>
+
+        
+
+        <!-- CUSTOM PHRASE -->
+        <div class="phrase-box">
+            <input type="text" id="userPhrase" placeholder="Enter your phrase...">
+            <button id="phraseBtn">Create Strong Password</button>
+        </div>
+
+        <!-- SLIDER -->
+        <div class="character-method">
+            <div class="slider-section">
+                <input type="range" min="4" max="32" value="18">
+                <div class="length">18</div>
+            </div>
+
+            <!-- OPTIONS -->
+            <div class="options">
+                <label><input type="checkbox" checked> Uppercase letters</label>
+                <label><input type="checkbox" checked> Lowercase letters</label>
+                <label><input type="checkbox"> Numbers</label>
+                <label><input type="checkbox"> Symbols</label>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+        <h2>PASSWORD HISTORY</h2>
+        <ul class="history"></ul>
+        <div class="clear">Clear history</div>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>
