@@ -259,7 +259,7 @@ document.addEventListener("keydown", (e) => {
 
     if (e.key === "Enter") {
         generatePassword();
-    } else if ((e.key === "c" || e.key === "C")) {
+    } else if (e.ctrlKey(e.key === "c" || e.key === "C")) {
         const password = passwordText.textContent;
         if (!password || password === "Select options") return;
 
@@ -267,28 +267,28 @@ document.addEventListener("keydown", (e) => {
         note.classList.add("active");
         setTimeout(() => note.classList.remove("active"), 2000);
 
-    } else if (e.key === "X" || e.key === "x") {
+    } else if (e.ctrlKey(e.key === "X" || e.key === "x")) {
         localStorage.removeItem("passwordHistory");
         loadHistory();
     } else if (e.key === "ArrowUp" || e.key === "ArrowRight") {
         let newValue = Math.min(parseInt(slider.value) + 1, slider.max);
         slider.value = newValue;
         lengthText.textContent = newValue;
-    } else if (e.key === "ArrowDown" || e.key === "ArrowLeft") {
+    } else if (e.ctrlKey(e.key === "ArrowDown" || e.key === "ArrowLeft")) {
         let newValue = Math.max(parseInt(slider.value) - 1, slider.min);
         slider.value = newValue;
         lengthText.textContent = newValue;
-    } else if (e.key === "g" || e.key === "G") {
+    } else if (e.ctrlKey(e.key === "g" || e.key === "G")) {
         generatePassword();
-    } else if (e.key === "u" || e.key === "U") {
+    } else if (e.ctrlKey(e.key === "u" || e.key === "U")) {
         checkboxes[0].checked = !checkboxes[0].checked;
-    } else if (e.key === "l" || e.key === "L") {
+    } else if (e.ctrlKey(e.key === "l" || e.key === "L")) {
         checkboxes[1].checked = !checkboxes[1].checked;
-    } else if (e.key === "n" || e.key === "N") {
+    } else if (e.ctrlKey(e.key === "n" || e.key === "N")) {
         checkboxes[2].checked = !checkboxes[2].checked;
-    } else if (e.key === "s" || e.key === "S") {
+    } else if (e.ctrlKey(e.key === "s" || e.key === "S")) {
         checkboxes[3].checked = !checkboxes[3].checked;
-    } else if (e.key === "r" || e.key === "R") {
+    } else if (e.ctrlKey(e.key === "r" || e.key === "R")) {
         window.location.reload();
     }
 
